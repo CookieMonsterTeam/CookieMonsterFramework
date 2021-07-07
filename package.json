@@ -1,0 +1,38 @@
+{
+  "name": "@cookiemonsterteam/cookiemonsterframework",
+  "version": "0.0.1",
+  "description": "A package with functions used in the Cookie Monste Mod Framework",
+  "keywords": [
+    "mod",
+    "Cookie Clicker",
+    "javascript",
+    "Dashnet",
+    "Orteil"
+  ],
+  "homepage": "https://github.com/CookieMonsterTeam/CookieMonsterFramework#readme",
+  "bugs": {
+    "url": "https://github.com/CookieMonsterTeam/CookieMonsterFramework/CookieMonster/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CookieMonsterTeam/CookieMonsterFramework"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Daniël van Noord",
+    "email": "13665637+DanielNoord@users.noreply.github.com"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "eslint": "eslint src"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "esm": "^3.2.25",
+    "npm-run-all": "^4.1.5",
+    "prettier": "2.3.0"
+  }
+}
