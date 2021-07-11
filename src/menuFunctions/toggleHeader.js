@@ -1,3 +1,5 @@
+import saveFramework from '../saveDataFunctions/saveFramework';
+
 /**
  * This function toggles header options by incrementing them with 1 and handling changes
  * It is called by the onclick event of the +/- next to headers
@@ -17,5 +19,5 @@ export default function toggleHeader(modName, headerName) {
       Game.mods.cookieMonsterFramework.saveData[modName].headers[headerName] = 0;
       break;
   }
-  //   SaveConfig();
+  saveFramework();
 }

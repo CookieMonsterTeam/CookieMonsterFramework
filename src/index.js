@@ -3,6 +3,8 @@ import registerMod from './initFunctions/registerMod';
 import createInfoListing from './menuFunctions/createInfoListing';
 import createModMenuSection from './menuFunctions/createModMenuSection';
 import toggleHeader from './menuFunctions/toggleHeader';
+import loadMod from './saveDataFunctions/loadMod';
+import saveFramework from './saveDataFunctions/saveFramework';
 
 export const initFunctions = {
   initModFramework,
@@ -15,4 +17,7 @@ export const menuFunctions = {
 };
 export const optionFunctions = {};
 
-export const saveFunctions = {};
+export const saveFunctions = {
+  loadMod,
+  saveFramework,
+};

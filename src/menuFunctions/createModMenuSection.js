@@ -4,7 +4,7 @@ import toggleHeader from './toggleHeader';
  * Returns a subsection for the mod to add listings/info to
  * @param   {string}  modName         The name of the mod (i.e., CookieMonster)
  * @param   {string}  modDisplayName  Display name of the mod (i.e., Cookie Monster)
- * @param   {string}  menuName            Name of the menu (i.e., Info, Options)
+ * @param   {string}  menuName        Name of the menu (i.e., Info, Options)
  * @returns {object}  modSectionDiv   Div of the subseciont
  */
 export default function createModMenuSection(modName, modDisplayName, menuName) {
@@ -32,7 +32,7 @@ export default function createModMenuSection(modName, modDisplayName, menuName) 
     ? '-'
     : '+';
   buttonSpan.onclick = function () {
-    toggleHeader(Game.mods.cookieMonsterFramework.saveData[modName].headers[menuName]);
+    toggleHeader(modName, menuName);
     Game.UpdateMenu();
   };
 

@@ -28,12 +28,13 @@ export default function addOptionsMenuSection() {
     ? '-'
     : '+';
   buttonSpan.onclick = function () {
-    toggleHeader('optionsMenu');
+    toggleHeader('cookieMonsterFramework', 'optionsMenu');
     Game.UpdateMenu();
   };
   titleDiv.appendChild(buttonSpan);
 
   modOptionsDiv.appendChild(titleDiv);
 
-  l('menu').appendChild(modOptionsDiv);
+  const subMenuLength = l('menu').children[2].children.length - 1;
+  l('menu').children[2].insertBefore(modOptionsDiv, l('menu').children[2].children[subMenuLength]);
 }

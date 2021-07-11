@@ -5,6 +5,5 @@
  * @returns {string}    The data to be saved
  */
 export default function save() {
-  // window.CookieMonsterFrameworkData.FrameworkSave = { test: 'test' };
-  return JSON.stringify(window.cookieMonsterFrameworkData.framework);
+  return JSON.stringify(Game.mods.cookieMonsterFramework.saveData.cookieMonsterFramework);
 }
