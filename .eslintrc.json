@@ -6,7 +6,9 @@
   "extends": ["airbnb-base", "prettier"],
   "globals": {
     "Game": "writable",
-    "l": "readonly"
+    "b64_to_utf8": "readonly",
+    "l": "readonly",
+    "utf8_to_b64": "readonly"
   },
   "ignorePatterns": ["dist/*", "node_modules/*"],
   "parserOptions": {
