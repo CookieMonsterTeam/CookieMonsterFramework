@@ -1,4 +1,4 @@
-import toggleHeader from './toggleHeader';
+import toggleHeader from './toggles/toggleHeader';
 
 /**
  * Returns a subsection for the mod to add listings/info to
