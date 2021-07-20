@@ -9,6 +9,7 @@ const cookieMonsterFramework = {
   save,
   listeners: {
     infoMenu: [],
+    optionsMenu: [],
   },
   saveData: { cookieMonsterFramework: { headers: {}, settings: {} } },
 };

@@ -1,40 +1,19 @@
-import toggleHeader from '../../../menuFunctions/toggleHeader';
-
+import createFrameworkOptionsMenuSection from './createFrameworkOptionsMenuSection';
 /**
  * Add things to the Options menu
+ * The listeners.optionsMenu objects contains functions which create <div>'s to add to the menu section
  */
 export default function addOptionsMenuSection() {
-  const modOptionsDiv = document.createElement('div');
-  modOptionsDiv.className = 'subsection';
-  modOptionsDiv.id = 'cookieMonsterOptionsDiv';
-
-  const titleDiv = document.createElement('div');
-  titleDiv.className = 'title';
-  titleDiv.innerHTML = 'Cookie Monster Mod Family';
-
-  const buttonSpan = document.createElement('span');
-  buttonSpan.style.cursor = 'pointer';
-  buttonSpan.style.display = 'inline-block';
-  buttonSpan.style.height = '14px';
-  buttonSpan.style.width = '14px';
-  buttonSpan.style.borderRadius = '7px';
-  buttonSpan.style.textAlign = 'center';
-  buttonSpan.style.backgroundColor = '#C0C0C0';
-  buttonSpan.style.color = 'black';
-  buttonSpan.style.fontSize = '13px';
-  buttonSpan.style.verticalAlign = 'middle';
-  buttonSpan.textContent = Game.mods.cookieMonsterFramework.saveData.cookieMonsterFramework.headers
-    .optionsMenu
-    ? '-'
-    : '+';
-  buttonSpan.onclick = function () {
-    toggleHeader('cookieMonsterFramework', 'optionsMenu');
-    Game.UpdateMenu();
-  };
-  titleDiv.appendChild(buttonSpan);
-
-  modOptionsDiv.appendChild(titleDiv);
-
   const subMenuLength = l('menu').children[2].children.length - 1;
-  l('menu').children[2].insertBefore(modOptionsDiv, l('menu').children[2].children[subMenuLength]);
+  l('menu').children[2].insertBefore(
+    createFrameworkOptionsMenuSection(),
+    l('menu').children[2].children[subMenuLength],
+  );
+
+  if (Game.mods.cookieMonsterFramework.saveData.cookieMonsterFramework.headers.optionsMenu) {
+    const listeners = Game.mods.cookieMonsterFramework.listeners.optionsMenu;
+    for (let i = 0; i < listeners.length; i++) {
+      l('cookieMonsterFrameworkMenuSection').appendChild(listeners[i]());
+    }
+  }
 }
