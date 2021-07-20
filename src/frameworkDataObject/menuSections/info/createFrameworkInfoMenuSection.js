@@ -1,5 +1,5 @@
 import modDescription from '../../data/modInfo';
-import toggleHeader from '../../../menuFunctions/toggleHeader';
+import toggleHeader from '../../../menu/toggles/toggleHeader';
 /**
  * Add things to the Info menu
  * @returns {object}  frameworkInfoDiv  Subsection to which other mods can add their info sections

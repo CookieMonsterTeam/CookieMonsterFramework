@@ -1,4 +1,4 @@
-import loadMod from '../saveDataFunctions/loadMod';
+import loadMod from '../savingAndLoading/loadMod';
 import headers from './data/headers';
 import settings from './data/settings';
 import logicLoop from './logic/logicLoop';
