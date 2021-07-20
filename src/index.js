@@ -1,23 +1,39 @@
-import initModFramework from './initFunctions/initModFramework';
-import registerMod from './initFunctions/registerMod';
-import createInfoListing from './menuFunctions/createInfoListing';
-import createModMenuSection from './menuFunctions/createModMenuSection';
-import toggleHeader from './menuFunctions/toggleHeader';
-import loadMod from './saveDataFunctions/loadMod';
-import saveFramework from './saveDataFunctions/saveFramework';
+import initModFramework from './init/initModFramework';
+import registerMod from './init/registerMod';
+import createInfoListing from './menu/listings/createInfoListing';
+import createModMenuSection from './menu/createModMenuSection';
+import loadMod from './savingAndLoading/loadMod';
+import saveFramework from './savingAndLoading/saveFramework';
+import createOptionsListing from './menu/listings/createOptionListing';
+import createOptionsSubHeader from './menu/listings/createOptionsSubHeader';
+import createFlash from './notifications/flash';
+import createNotification from './notifications/notification';
+import cookieMonsterPrompt from './notifications/prompt';
+import playCMSound from './notifications/sound';
 
 export const initFunctions = {
   initModFramework,
   registerMod,
 };
 export const menuFunctions = {
-  createInfoListing,
+  listings: {
+    createInfoListing,
+    createOptionsListing,
+    createOptionsSubHeader,
+  },
   createModMenuSection,
-  toggleHeader,
 };
+
+export const notificationsFunctions = {
+  createFlash,
+  createNotification,
+  cookieMonsterPrompt,
+  playCMSound,
+};
+
 export const optionFunctions = {};
 
-export const saveFunctions = {
+export const saveAndLoadingFunctions = {
   loadMod,
   saveFramework,
 };
