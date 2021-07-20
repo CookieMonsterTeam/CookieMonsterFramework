@@ -1,4 +1,5 @@
 import drawLoop from './draw/drawLoop';
+import createFlashScreen from './init/createFlashScreen';
 import addMenu from './menuSections/addMenu';
 
 /**
@@ -9,7 +10,7 @@ import addMenu from './menuSections/addMenu';
  */
 export default function init() {
   // Create Data object in global scope
-  window.cookieMonsterFrameworkData = {};
+  window.cookieMonsterFrameworkData = { isInitializing: true };
 
   // Create MutationObserver for menu sections
   const observer = new MutationObserver(addMenu);
@@ -19,6 +20,10 @@ export default function init() {
     subtree: true,
   });
 
+  // Draw initiaization
+  createFlashScreen();
+
   // Register hooks
   Game.registerHook('draw', drawLoop);
+  window.cookieMonsterFrameworkData.isInitializing = false;
 }
