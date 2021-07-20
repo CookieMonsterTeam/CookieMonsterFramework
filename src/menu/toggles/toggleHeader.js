@@ -1,4 +1,4 @@
-import saveFramework from '../saveDataFunctions/saveFramework';
+import saveFramework from '../../savingAndLoading/saveFramework';
 
 /**
  * This function toggles header options by incrementing them with 1 and handling changes
