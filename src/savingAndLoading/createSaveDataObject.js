@@ -7,6 +7,7 @@
 export default function createSaveDataObject(saveData, settingsData, headersData) {
   const modSaveData = {};
 
+  // When a setting is missing (because it is new or modified) these lines add the default value
   const settingsObject = {};
   Object.keys(settingsData).forEach((i) => {
     if (typeof saveData.settings === 'undefined' || typeof saveData.settings[i] === 'undefined') {
@@ -17,6 +18,7 @@ export default function createSaveDataObject(saveData, settingsData, headersData
   });
   modSaveData.settings = settingsObject;
 
+  // When a header is missing (because it is new or modified) these lines add the default value
   const headersObject = {};
   Object.keys(headersData).forEach((i) => {
     if (typeof saveData.headers === 'undefined' || typeof saveData.headers[i] === 'undefined') {
