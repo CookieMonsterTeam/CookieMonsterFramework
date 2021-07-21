@@ -1,5 +1,6 @@
 import drawLoop from './draw/drawLoop';
 import createFlashScreen from './init/createFlashScreen';
+import load from './load';
 import addMenu from './menuSections/addMenu';
 
 /**
@@ -25,5 +26,10 @@ export default function init() {
 
   // Register hooks
   Game.registerHook('draw', drawLoop);
+
+  // Load defaults if there is no previous save
+  if (Game.modSaveData.cookieMonsterFramework === 'undefined') {
+    load('{}');
+  }
   window.cookieMonsterFrameworkData.isInitializing = false;
 }
