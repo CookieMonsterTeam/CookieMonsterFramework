@@ -1,6 +1,10 @@
 /**
- * Adds the mod to the saveData object to store Settings and Headers
+ * Adds the mod to the saveData object to store (favourite) settings and headers
  */
 export default function registerMod(modName) {
-  Game.mods.cookieMonsterFramework.saveData[modName] = { settings: {}, headers: {} };
+  Game.mods.cookieMonsterFramework.saveData[modName] = {
+    favouriteSettings: [],
+    headers: {},
+    settings: {},
+  };
 }
