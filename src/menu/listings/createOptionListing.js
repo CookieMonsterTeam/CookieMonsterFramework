@@ -1,11 +1,13 @@
 import jscolor, * as JsColor from '@eastdesire/jscolor';
-import createFavouriteStar from './createOptionsFavouriteStar';
-import saveFramework from '../../savingAndLoading/saveFramework';
-import ToggleConfig from '../../options/toggleConfig';
-import toggleConfigVolume from '../../options/toggleConfigVolume';
+
 import cookieMonsterPrompt from '../../notifications/prompt';
-import playCMSound from '../../notifications/sound';
+import createFavouriteStar from './createOptionsFavouriteStar';
 import createFlash from '../../notifications/flash';
+import playCMSound from '../../notifications/sound';
+import saveFramework from '../../savingAndLoading/saveFramework';
+import toggleConfig from '../../options/toggleConfig';
+import toggleConfigKeycode from '../../options/toggleConfigKeycode';
+import toggleConfigVolume from '../../options/toggleConfigVolume';
 
 /**
  * This function creates an option listing div-object
@@ -49,7 +51,7 @@ export default function createOptionsListing(
     }
     a.id = `${modName}Options${configName}`;
     a.onclick = function () {
-      ToggleConfig(modName, configName, settingsData);
+      toggleConfig(modName, configName, settingsData);
       Game.UpdateMenu();
     };
     a.textContent =
@@ -133,23 +135,18 @@ export default function createOptionsListing(
     input.className = 'option';
     input.type = 'text';
     input.readOnly = true;
-    input.setAttribute(
-      'value',
-      Game.mods.cookieMonsterFramework.saveData[modName].settings[configName],
-    );
+    input.value = Game.mods.cookieMonsterFramework.saveData[modName].settings[configName];
     input.style.width = '300px';
     div.appendChild(input);
     div.appendChild(document.createTextNode(' '));
+
+    // Create prompt
     const inputPrompt = document.createElement('input');
     inputPrompt.id = `${modName}Options${configName}Prompt`;
     inputPrompt.className = 'option';
     inputPrompt.type = 'text';
-    inputPrompt.setAttribute(
-      'value',
-      Game.mods.cookieMonsterFramework.saveData[modName].settings[configName],
-    );
+    inputPrompt.value = Game.mods.cookieMonsterFramework.saveData[modName].settings[configName];
 
-    // Create prompt
     const a = document.createElement('a');
     a.className = 'option';
     a.onclick = function () {
@@ -192,10 +189,7 @@ export default function createOptionsListing(
     const input = document.createElement('input');
     input.id = configName;
     input.style.width = '65px';
-    input.setAttribute(
-      'value',
-      Game.mods.cookieMonsterFramework.saveData[modName].settings[configName],
-    );
+    input.value = Game.mods.cookieMonsterFramework.saveData[modName].settings[configName];
     innerSpan.appendChild(input);
     const change = function () {
       Game.mods.cookieMonsterFramework.saveData[modName].settings[this.targetElement.id] =
@@ -251,6 +245,39 @@ export default function createOptionsListing(
     };
     div.appendChild(input);
     div.appendChild(document.createTextNode(' '));
+
+    // Create description label
+    const label = document.createElement('label');
+    label.textContent = settingsData[configName].desc;
+    label.style.lineHeight = '1.6';
+    div.appendChild(label);
+    return div;
+  }
+
+  if (settingsData[configName].type === 'keycode') {
+    // Create prompt
+    const inputPrompt = document.createElement('input');
+    inputPrompt.id = `${modName}Options${configName}Prompt`;
+    inputPrompt.className = 'option';
+    inputPrompt.type = 'text';
+    inputPrompt.value =
+      Game.mods.cookieMonsterFramework.saveData[modName].settings[configName].displayName;
+
+    // Create toggle button
+    const a = document.createElement('a');
+    a.className = 'option';
+    a.id = `${modName}Options${configName}`;
+    a.onclick = function () {
+      cookieMonsterPrompt(inputPrompt.outerHTML, []);
+      l(`${modName}Options${configName}Prompt`).addEventListener('keyup', (e) => {
+        toggleConfigKeycode(modName, configName, e);
+        Game.ClosePrompt();
+        Game.UpdateMenu();
+      });
+    };
+    a.textContent =
+      Game.mods.cookieMonsterFramework.saveData[modName].settings[configName].displayName;
+    div.appendChild(a);
 
     // Create description label
     const label = document.createElement('label');
