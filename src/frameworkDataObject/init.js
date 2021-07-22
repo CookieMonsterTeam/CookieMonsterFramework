@@ -28,7 +28,7 @@ export default function init() {
   Game.registerHook('draw', drawLoop);
 
   // Load defaults if there is no previous save
-  if (Game.modSaveData.cookieMonsterFramework === 'undefined') {
+  if (typeof Game.modSaveData.cookieMonsterFramework === 'undefined') {
     load('{}');
   }
   window.cookieMonsterFrameworkData.isInitializing = false;

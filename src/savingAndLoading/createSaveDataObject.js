@@ -34,5 +34,9 @@ export default function createSaveDataObject(saveData, settingsData, headersData
       modSaveData[key] = saveData[key];
     }
   });
+
+  if (typeof modSaveData.favouriteSettings === 'undefined') {
+    modSaveData.favouriteSettings = [];
+  }
   return modSaveData;
 }
