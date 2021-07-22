@@ -7,7 +7,7 @@ import saveFramework from '../savingAndLoading/saveFramework';
  * @param 	{string}	configName	  The name of the option
  * @param 	{object}	settingsData	Object with data about the settings
  */
-export default function ToggleConfig(modName, configName, settingsData) {
+export default function toggleConfig(modName, configName, settingsData) {
   Game.mods.cookieMonsterFramework.saveData[modName].settings[configName] += 1;
   if (
     Game.mods.cookieMonsterFramework.saveData[modName].settings[configName] ===
