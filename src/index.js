@@ -44,7 +44,7 @@ export const saveAndLoadingFunctions = {
   saveFramework,
 };
 
-export const saveClasses = {
+export const settingClasses = {
   SettingColours,
   SettingInputNumber,
   SettingStandard,
