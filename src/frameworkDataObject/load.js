@@ -1,7 +1,7 @@
-import loadMod from '../savingAndLoading/loadMod';
 import headers from './data/headers';
-import settings from './data/settings';
+import loadMod from '../savingAndLoading/loadMod';
 import logicLoop from './logic/logicLoop';
+import settings from './data/settings';
 
 /**
  * This creates a load function to the CM object. Per Game code/comments:

@@ -1,7 +1,7 @@
-import drawLoop from './draw/drawLoop';
-import createFlashScreen from './init/createFlashScreen';
-import load from './load';
 import addMenu from './menuSections/addMenu';
+import createFlashScreen from './init/createFlashScreen';
+import drawLoop from './draw/drawLoop';
+import load from './load';
 
 /**
  * This creates a init function for the CM object. Per Game code/comments:
