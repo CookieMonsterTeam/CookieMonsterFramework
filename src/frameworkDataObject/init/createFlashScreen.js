@@ -10,5 +10,6 @@ export default function createFlashScreen() {
   WhiteScreen.style.display = 'none';
   WhiteScreen.style.zIndex = '9999999999';
   WhiteScreen.style.position = 'absolute';
+  WhiteScreen.style.pointerEvents = "none";
   l('wrapper').appendChild(WhiteScreen);
 }
