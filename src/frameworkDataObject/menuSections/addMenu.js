@@ -1,5 +1,5 @@
 import addInfoMenuSection from './info/addInfoMenuSection';
-import addOptionsMenuSection from './options/addOptionsMenuSection';
+// import addOptionsMenuSection from './options/addOptionsMenuSection';
 
 /**
  * Call the function to add a Menu based on the current menu
@@ -12,7 +12,8 @@ export default function addMenu(_, observer) {
   if (Game.onMenu === 'log') {
     addInfoMenuSection();
   } else if (Game.onMenu === 'prefs') {
-    addOptionsMenuSection();
+    // Commented out because this is broken
+    // addOptionsMenuSection();
   }
 
   // Reconnect observer to monitor changes
