@@ -9,7 +9,7 @@ export default function saveFramework() {
     const cookieClickerSaveString = b64_to_utf8(
       unescape(localStorage.getItem('CookieClickerGame')).split('!END!')[0],
     );
-    const pattern = new RegExp(`${modName}.*(;|$)`);
+    const pattern = new RegExp(`${modName}.*?(;|$)`);
     const modSave = cookieClickerSaveString.match(pattern);
     if (modSave !== null) {
       const newSaveString = cookieClickerSaveString.replace(
